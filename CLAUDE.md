@@ -29,7 +29,9 @@ Owner: Bones_84 (a streamer). Read README.md for the user-facing details of ever
   (Product/Company/Copyright on every exe/dll), `App/Services/AppInfo` (Version, Copyright, UseNotice, OpenLicense)
   shown in the launcher footer, Help, Settings,
   the walkthrough's first page, the guide's cover/footer and the CLI help. Keep these on anything new that's shared.
-- Testers: `make-tester-package.cmd` → `dist\LaunchStage test.zip`. Owner's requirement: **LaunchStage.exe must be
+- Testers: `make-tester-package.cmd` → `dist\LaunchStage.zip` (name must stay: README's Download link is
+  `https://github.com/boneSk8er5-lab/LaunchStage/releases/latest/download/LaunchStage.zip`, and releases must not be
+  marked pre-release or "latest" skips them). Owner's requirement: **LaunchStage.exe must be
   in the first folder after extracting**, so everything goes in the zip root (`dist\package`): single-file,
   self-contained, compressed win-x64 publishes (CLI then app; ~13 files, no temp extraction since native WPF dlls
   stay beside the exe), READ ME FIRST, LICENSE, guide PDF, Stream Deck plugin folder, `Uninstall LaunchStage.cmd`,
@@ -194,7 +196,7 @@ Soomfon (CommandsDialog shows them).
    danger color (Delete, Close App) is orange, like every other "problem" color (it used to be white).
 6. Easy instructions (owner asked: "do it all"; built, **not yet tested by the owner**): built-in Help with
    12 topics and pictures, ? links, first-run walkthrough, and the web page + PDF in `docs\`.
-7. Released: public GitHub repository with release v0.2.0 (pre-release, "LaunchStage test.zip"), free for personal
+7. Released: public GitHub repository boneSk8er5-lab/LaunchStage, release v0.2.0 (LaunchStage.zip), free for personal
    use. Remove LaunchStage built; its file cleanup was tested on throwaway copies, not yet end-to-end by the owner.
    Next: watch downloads/Issues, fix what testers report.
 Later: voice commands (Windows built-in speech, fixed phrases, push-to-talk), release packaging

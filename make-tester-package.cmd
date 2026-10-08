@@ -1,5 +1,6 @@
 @echo off
-rem Makes the zip to share: dist\LaunchStage test.zip
+rem Makes the zip to share: dist\LaunchStage.zip
+rem (Keep that name: the README's Download link points to LaunchStage.zip in the latest GitHub release.)
 rem It runs on any Windows 10 or 11 PC without installing anything: .NET is packed inside the two .exe files.
 rem Everything sits in the zip's top folder, so LaunchStage.exe is right there after extracting:
 rem   LaunchStage.exe, LaunchStageCli.exe, a few files WPF needs, READ ME FIRST.txt, LICENSE.txt,
@@ -9,7 +10,7 @@ rem This doesn't touch the "out" folder that build.cmd makes.
 
 set "DIST=%~dp0dist"
 set "PKG=%DIST%\package"
-set "ZIP=%DIST%\LaunchStage test.zip"
+set "ZIP=%DIST%\LaunchStage.zip"
 rem One .exe each, with .NET packed in and compressed; no debug files.
 set "PUBLISH=-c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -p:DebugType=none"
 

@@ -4,8 +4,16 @@ Copyright (c) 2026 Bones_84. All rights reserved. LaunchStage is **free for pers
 may not be copied, re-uploaded, shared, sold, modified or reused without the permission and consent of Bones_84, and
 seeing the code here doesn't give permission to use it. See [LICENSE.txt](LICENSE.txt).
 
-**Download:** get the latest zip from this page's **Releases** (on the right), unzip it, and follow
-*READ ME FIRST.txt* inside. Found a problem or have an idea? Open an **Issue**.
+## ⬇️ [Download LaunchStage](https://github.com/boneSk8er5-lab/LaunchStage/releases/latest/download/LaunchStage.zip)
+
+1. Click **Download LaunchStage** above (always the newest version).
+2. Right-click the downloaded zip and choose **Extract All...**
+3. Double-click **LaunchStage.exe** in the folder that opens. Windows 10 or 11, nothing else to install.
+
+Windows may say "Windows protected your PC": click **More info**, then **Run anyway**. Found a problem or have an
+idea? Open an [Issue](https://github.com/boneSk8er5-lab/LaunchStage/issues).
+
+---
 
 One press puts your PC into a saved workspace: the right apps open, apps you don't need close or minimize, and every window lands on the right monitor in the right spot.
 
@@ -34,7 +42,7 @@ If the build fails, copy the red error lines and send them to Claude.
 
 ## Send it to testers
 
-Double-click `make-tester-package.cmd`. It makes `dist\LaunchStage test.zip`, which runs on any Windows 10 or 11 PC
+Double-click `make-tester-package.cmd`. It makes `dist\LaunchStage.zip`, which runs on any Windows 10 or 11 PC
 without installing anything (.NET is packed inside each .exe). Everything is in the zip's top folder, so
 **LaunchStage.exe** is right there after extracting, next to **READ ME FIRST.txt** (simple steps and the sharing
 rules, from `tester\READ ME FIRST.txt`), LICENSE.txt, the guide PDF, Uninstall LaunchStage.cmd, LaunchStageCli.exe,
@@ -47,7 +55,9 @@ Microsoft's .NET runtime packs (one time, about 150-200 MB).
 The code is in a **public** GitHub repository (anyone can see it; the license still reserves all rights).
 `.gitignore` leaves out everything the build scripts make (`out`, `dist`, `bin`, `obj`, `node_modules`...), and
 `.gitattributes` keeps Windows line endings. The download zip isn't stored with the code: attach
-`dist\LaunchStage test.zip` to a GitHub **Release** (marked as a pre-release while it's an early version).
+`dist\LaunchStage.zip` to a GitHub **Release**, set as the **latest release** (not a pre-release: GitHub's
+"latest" link skips pre-releases). Keep the file name `LaunchStage.zip`: the Download link at the top of this README
+always fetches that file from the newest release.
 
 ## Use the app
 
