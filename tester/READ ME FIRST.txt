@@ -45,9 +45,11 @@ remove anything private before you post it.
 
 REMOVE IT
 ---------
-1. In LaunchStage, open Settings, untick "Start with Windows" and "Run LaunchStage with administrator
-   rights" (if you turned it on), and click Save.
-2. Right-click the tray icon and click Exit.
-3. Delete the LaunchStage folder.
-4. Optional: delete your profiles and settings too: press Windows+R, type %AppData%\LaunchStage, press Enter,
-   and delete that folder.
+Please don't just delete the folder: LaunchStage would keep trying to start with Windows.
+Instead, either:
+- open LaunchStage, click Settings, and at the bottom click "Remove LaunchStage...", or
+- double-click "Uninstall LaunchStage.cmd" inside the LaunchStage folder.
+
+It asks first, then removes everything LaunchStage added to your PC: the Start with Windows entry, Admin
+support, its files and its folder. Untick "Also delete my profiles, settings and game history" if you want to
+keep your profiles. If you use the Stream Deck plugin, remove it in the Stream Deck app (Preferences > Plugins).

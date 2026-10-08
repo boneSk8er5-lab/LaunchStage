@@ -24,6 +24,17 @@ dotnet publish "%~dp0src\LaunchStage.App\LaunchStage.App.csproj" -c Release -r w
 if errorlevel 1 goto failed
 
 echo.
+echo Adding the uninstaller...
+> "%APP%\Uninstall LaunchStage.cmd" (
+    echo @echo off
+    echo rem Removes LaunchStage and everything it added to this PC. It asks first.
+    echo start "" "%%~dp0LaunchStage.exe" --uninstall
+)
+rem The list of LaunchStage's own files: Remove LaunchStage deletes only these (never other files in the folder).
+powershell -NoProfile -Command "$app = '%APP%'; $files = @(Get-ChildItem -LiteralPath $app -Recurse -File | ForEach-Object { $_.FullName.Substring($app.Length + 1) }) + 'uninstall-files.txt'; Set-Content -LiteralPath (Join-Path $app 'uninstall-files.txt') -Value $files -Encoding UTF8"
+if errorlevel 1 goto failed
+
+echo.
 echo Adding the guide, license and instructions...
 copy /y "%~dp0LICENSE.txt" "%PKG%\LICENSE.txt" >nul
 copy /y "%~dp0tester\READ ME FIRST.txt" "%PKG%\READ ME FIRST.txt" >nul

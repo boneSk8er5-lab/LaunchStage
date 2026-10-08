@@ -17,6 +17,7 @@ namespace LaunchStageApp;
 ///   --resnap "Stream"       put a profile's open windows back in their spots
 ///   --toggle "Stream"       open a profile, or close it when it's already open
 ///   --games                 open the game picker
+///   --uninstall             open "Remove LaunchStage" (used by Uninstall LaunchStage.cmd)
 ///   --export-guide "folder" save the guide as a web page (guide.html + images) in that folder, then exit
 ///   --exit                 tell the running LaunchStage to exit (used by build.cmd)
 ///   --setup-admin [--startup] / --remove-admin
@@ -55,6 +56,7 @@ public partial class App : Application
         string? resnapName = null;
         string? toggleName = null;
         bool gamesRequest = false;
+        bool uninstallRequest = false;
         bool startInTray = false;
         bool exitRequest = false;
         bool setupAdmin = false;
@@ -107,6 +109,10 @@ public partial class App : Application
             {
                 gamesRequest = true;
             }
+            else if (option == "uninstall")
+            {
+                uninstallRequest = true;
+            }
             else if (option == "export-guide" && i + 1 < e.Args.Length)
             {
                 // Used by build-guide.cmd; works whether or not LaunchStage is running.
@@ -123,6 +129,7 @@ public partial class App : Application
             : resnapName != null ? ("resnap", resnapName)
             : toggleName != null ? ("toggle", toggleName)
             : gamesRequest ? ("games", null)
+            : uninstallRequest ? ("uninstall", null)
             : null;
 
         // Admin support setup: this copy was started with admin rights only to create or remove the tasks.
@@ -211,8 +218,31 @@ public partial class App : Application
 
         if (request is { } todo)
         {
+            // Started only to remove LaunchStage: if that's cancelled, don't stay running.
+            _exitIfUninstallCancelled = todo.Command == "uninstall";
             HandleCommand(todo.Command, todo.Argument);
         }
+    }
+
+    private bool _exitIfUninstallCancelled;
+
+    /// <summary>"Remove LaunchStage" (Settings, or Uninstall LaunchStage.cmd). Exits LaunchStage when it's done.</summary>
+    public void ShowUninstall()
+    {
+        var window = new UninstallWindow();
+        if (VisibleMain is { } owner)
+        {
+            window.Owner = owner;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        }
+
+        window.ShowDialog();
+        if (window.Removed || _exitIfUninstallCancelled)
+        {
+            ExitApp();
+        }
+
+        _exitIfUninstallCancelled = false;
     }
 
     private static int ExportGuide(string folder)
@@ -300,6 +330,10 @@ public partial class App : Application
         {
             GamePicker.ShowPicker(null);
         }
+        else if (command == "uninstall")
+        {
+            ShowUninstall();
+        }
         else if (command == "exit")
         {
             ExitApp();
@@ -369,10 +403,12 @@ public partial class App : Application
         }
 
         AppSettings? saved;
+        bool removeRequested;
         try
         {
             _settingsWindow.ShowDialog();
             saved = _settingsWindow.SavedSettings;
+            removeRequested = _settingsWindow.RemoveRequested;
         }
         finally
         {
@@ -382,6 +418,11 @@ public partial class App : Application
         if (saved != null)
         {
             ApplySettings(saved);
+        }
+
+        if (removeRequested)
+        {
+            ShowUninstall();
         }
     }
 

@@ -127,6 +127,17 @@ Dragged windows around during a session? Re-snap puts an open profile's windows 
 closing or minimizing anything (apps that aren't open are skipped). Use the profile's re-snap hotkey, right-click its
 card or the tray icon and choose **Put windows back**, or a Stream Deck button with `--resnap "Stream"`.
 
+## Remove LaunchStage
+
+**Settings > Remove LaunchStage...** (or `Uninstall LaunchStage.cmd` in the downloaded LaunchStage folder, which runs
+`LaunchStage.exe --uninstall`) asks first, then removes everything LaunchStage added: the Start with Windows entry,
+the Admin support scheduled tasks and their Task Scheduler folder, `%AppData%\LaunchStage` (profiles, settings and
+game history only if "Also delete my profiles..." is ticked, which it is by default), the guide's temp copy, and the
+program files. Program files are only removed when `uninstall-files.txt` (the list of LaunchStage's own files, made by
+`make-tester-package.cmd`) is next to LaunchStage.exe; it deletes just those files and the folder if that leaves it
+empty. The deleting is done by a short script that waits for LaunchStage to exit. A copy run from `out\` keeps its
+folder (there's no list there). The Stream Deck plugin is removed in the Stream Deck app.
+
 ## Help and the guide
 
 - **Help** at the top of the LaunchStage window (or `F1`, or **Help** in the tray menu) opens the guide: easy,

@@ -24,6 +24,9 @@ internal static class AdminTasks
 
     public static bool RunTaskExists() => Schtasks($"/query /tn \"{RunTask}\"") == 0;
 
+    /// <summary>Either Admin support task is there (for removing LaunchStage).</summary>
+    public static bool AnyTaskExists() => RunTaskExists() || Schtasks($"/query /tn \"{StartupTask}\"") == 0;
+
     /// <summary>Starts the administrator copy of LaunchStage without a permission prompt.</summary>
     public static bool StartAdminCopy() => Schtasks($"/run /tn \"{RunTask}\"") == 0;
 
@@ -113,7 +116,25 @@ internal static class AdminTasks
         int a = Schtasks($"/delete /tn \"{StartupTask}\" /f");
         int b = Schtasks($"/delete /tn \"{RunTask}\" /f");
         Log.Info($"Admin support tasks removed (exit codes {a}, {b}).");
+        DeleteEmptyTaskFolder();
         return true; // a task that was already gone is fine
+    }
+
+    /// <summary>Removes the (now empty) "LaunchStage" folder in Task Scheduler, so nothing is left behind.</summary>
+    private static void DeleteEmptyTaskFolder()
+    {
+        try
+        {
+            dynamic scheduler = Activator.CreateInstance(Type.GetTypeFromProgID("Schedule.Service")!)!;
+            scheduler.Connect();
+            dynamic root = scheduler.GetFolder(@"\");
+            root.DeleteFolder("LaunchStage", 0); // only works when it's empty, which is what we want
+            Log.Info("Removed the empty LaunchStage folder in Task Scheduler.");
+        }
+        catch (Exception ex)
+        {
+            Log.Debug($"The LaunchStage folder in Task Scheduler wasn't removed: {ex.Message}");
+        }
     }
 
     private static bool CreateTask(string name, string xml)

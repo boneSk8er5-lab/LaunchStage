@@ -10,6 +10,9 @@ namespace LaunchStageApp.Services;
 /// </summary>
 internal static class GuideHtml
 {
+    /// <summary>Where Help's "Open as web page" puts its copy (removed again by Remove LaunchStage).</summary>
+    public static string TempFolder => Path.Combine(Path.GetTempPath(), "LaunchStage guide");
+
     /// <summary>Writes guide.html and its pictures into the folder. Returns the page's full path.</summary>
     public static string Write(string folder)
     {

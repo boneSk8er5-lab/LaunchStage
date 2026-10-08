@@ -37,6 +37,14 @@ Owner: Bones_84 (a streamer). Read README.md for the user-facing details of ever
   FIRST warns that logs contain window titles). `.gitignore`
   excludes build output, `dist`, `node_modules` and plugin build files; `.gitattributes` forces CRLF. Tester zips go
   on GitHub Releases (pre-release), not in the repo. Never commit personal paths or the owner's data folder.
+- Remove LaunchStage (owner: "no need to install but needs a way to remove all left behind files it created"):
+  `App/Services/Uninstaller` + `Views/UninstallWindow` (Settings card button, `--uninstall`, tester zip's
+  `Uninstall LaunchStage.cmd`). Removes the HKCU Run value (`StartupManager.Remove`), Admin support tasks
+  (`AdminTasks.Remove`, plus the empty Task Scheduler folder via COM in `DeleteTasks`), then a temp PowerShell script
+  waits for the process to exit and deletes: files listed in `uninstall-files.txt` (written by
+  make-tester-package.cmd; nothing else in the folder) and the folder if empty; `%AppData%\LaunchStage` (whole, or only
+  Logs/Snapshots/app-path/open-profiles when profiles are kept; refuses a folder not named LaunchStage); the guide temp
+  copy; itself. **Anything new LaunchStage writes to the PC must be added to Uninstaller.**
 - There are no automated tests yet. After changes, build and check `%AppData%\LaunchStage\Logs\debug_log.txt`.
 
 ## Projects

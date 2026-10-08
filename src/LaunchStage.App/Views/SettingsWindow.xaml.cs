@@ -238,6 +238,15 @@ public partial class SettingsWindow : Window
 
     private void Copyright_Click(object sender, MouseButtonEventArgs e) => AppInfo.OpenLicense();
 
+    /// <summary>True when "Remove LaunchStage..." was clicked; the app opens that window after Settings closes.</summary>
+    public bool RemoveRequested { get; private set; }
+
+    private void Remove_Click(object sender, RoutedEventArgs e)
+    {
+        RemoveRequested = true;
+        DialogResult = false; // nothing in Settings is saved; the remove window opens next
+    }
+
     private void ClearGameHotkey_Click(object sender, RoutedEventArgs e) => GameHotkeyBox.Text = "";
 
     private void Save_Click(object sender, RoutedEventArgs e)

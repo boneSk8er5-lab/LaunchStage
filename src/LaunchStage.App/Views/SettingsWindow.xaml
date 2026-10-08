@@ -145,6 +145,17 @@
                 </WrapPanel>
             </StackPanel>
         </Border>
+
+        <!-- Remove LaunchStage -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Remove LaunchStage" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="settings-and-look" Click="Help_Click" /></StackPanel>
+                <TextBlock Style="{StaticResource Hint}" Margin="0,0,0,8"
+                           Text="Takes LaunchStage off this PC: stops it starting with Windows, removes Admin support, and deletes its files (you choose whether your profiles go too)." />
+                <Button Content="Remove LaunchStage..." Style="{StaticResource DangerButton}" HorizontalAlignment="Left"
+                        Click="Remove_Click" />
+            </StackPanel>
+        </Border>
         </StackPanel>
         </ScrollViewer>
 

@@ -29,3 +29,15 @@ Apps that run as administrator can only be moved or closed by a program that als
 - **Profiles:** import or export profiles, open the profiles folder, or open the log.
 
 Click **Save** to keep your changes.
+
+## Remove LaunchStage
+
+LaunchStage doesn't need installing, but it does add a few things to your PC (like starting with Windows). To take it all away again, don't just delete its folder:
+
+1. Open **Settings** and, at the bottom, click **Remove LaunchStage...**. (Or double-click **Uninstall LaunchStage.cmd** in the LaunchStage folder.)
+2. To keep your profiles, untick **Also delete my profiles, settings and game history**.
+3. Click **Remove LaunchStage**. If you used Admin support, Windows asks for permission once.
+
+LaunchStage closes, and a few seconds later its files and folder are gone. It only deletes its own files, never anything else in that folder.
+
+> Using the Stream Deck plugin? Remove it in the Stream Deck app: **Preferences**, **Plugins**, pick **LaunchStage**, then click the minus button.

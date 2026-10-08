@@ -1,0 +1,41 @@
+<Window x:Class="LaunchStageApp.Views.UninstallWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Remove LaunchStage"
+        Width="560" SizeToContent="Height" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Assets/LaunchStage.ico"
+        Style="{StaticResource DarkWindow}">
+
+    <StackPanel Margin="20">
+        <TextBlock Text="Remove LaunchStage from this PC?" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,10" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,8"
+                   Text="LaunchStage will stop, and everything it added to this PC is removed:" />
+        <StackPanel Margin="12,0,0,10">
+            <TextBlock Text="•  It no longer starts with Windows" Margin="0,0,0,3" />
+            <TextBlock Text="•  Admin support is removed (Windows may ask for permission once)" Margin="0,0,0,3" TextWrapping="Wrap" />
+            <TextBlock Text="•  Its log and other working files are deleted" Margin="0,0,0,3" />
+            <TextBlock x:Name="ProgramFilesText" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+            <StackPanel>
+                <CheckBox x:Name="DeleteProfilesBox" IsChecked="True"
+                          Content="Also delete my profiles, settings and game history" />
+                <TextBlock Style="{StaticResource Hint}" Margin="26,4,0,0"
+                           Text="This can't be undone. To keep a profile, untick this, or close this window and use Export on its card first." />
+            </StackPanel>
+        </Border>
+
+        <TextBlock x:Name="StreamDeckText" Style="{StaticResource Hint}" TextWrapping="Wrap" Margin="0,0,0,10" Visibility="Collapsed"
+                   Text="The LaunchStage Stream Deck plugin is removed in the Stream Deck app: open its Preferences, click Plugins, pick LaunchStage and click the minus button." />
+
+        <TextBlock x:Name="BusyText" Foreground="{DynamicResource WarnBrush}" TextWrapping="Wrap" Margin="0,0,0,10" Visibility="Collapsed"
+                   Text="A profile is being set up right now. Wait for it to finish, then try again." />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel" IsCancel="True" IsDefault="True" Margin="0,0,8,0" />
+            <Button Content="Remove LaunchStage" Style="{StaticResource DangerButton}" Click="Remove_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

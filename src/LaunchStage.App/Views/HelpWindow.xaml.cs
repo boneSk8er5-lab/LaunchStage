@@ -130,8 +130,7 @@ public partial class HelpWindow : Window
     {
         try
         {
-            string folder = Path.Combine(Path.GetTempPath(), "LaunchStage guide");
-            string page = GuideHtml.Write(folder);
+            string page = GuideHtml.Write(GuideHtml.TempFolder);
 
             // Through Explorer, so the browser opens as a normal app even when LaunchStage runs as administrator.
             Process.Start(new ProcessStartInfo("explorer.exe", $"\"{page}\"") { UseShellExecute = true });

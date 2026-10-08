@@ -29,6 +29,9 @@ internal static class StartupManager
         SetRunEntry(enabled);
     }
 
+    /// <summary>For removing LaunchStage: takes it out of the programs Windows starts at sign-in.</summary>
+    public static void Remove() => SetRunEntry(false);
+
     private static void SetRunEntry(bool enabled)
     {
         try
