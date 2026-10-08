@@ -18,7 +18,7 @@ public partial class WelcomeWindow : Window
     private static readonly Page[] Pages =
     {
         new("Welcome to LaunchStage",
-            "One press sets up your whole workspace: the right apps open, every window lands in its spot on the right monitor, and apps you don't need get out of the way.\n\nThis takes a minute. Click **Next**.\n\n*LaunchStage is made by Bones_84. This is a test version: please don't share it without permission. All rights reserved.*",
+            "One press sets up your whole workspace: the right apps open, every window lands in its spot on the right monitor, and apps you don't need get out of the way.\n\nThis takes a minute. Click **Next**.\n\n*LaunchStage is made by Bones_84. It's free for personal use; please don't share or re-upload it. All rights reserved.*",
             "launcher.png"),
         new("Make a profile",
             "Open your apps and arrange the windows the way you like them. Then click the dashed **New profile** card, type a name, tick the windows that belong, and click **Save profile**.",

@@ -1,7 +1,11 @@
 # LaunchStage
 
-Copyright (c) 2026 Bones_84. All rights reserved. LaunchStage is not open-source: it may not be copied, shared or
-distributed without the permission and consent of Bones_84. See [LICENSE.txt](LICENSE.txt).
+Copyright (c) 2026 Bones_84. All rights reserved. LaunchStage is **free for personal use** but not open-source: it
+may not be copied, re-uploaded, shared, sold, modified or reused without the permission and consent of Bones_84, and
+seeing the code here doesn't give permission to use it. See [LICENSE.txt](LICENSE.txt).
+
+**Download:** get the latest zip from this page's **Releases** (on the right), unzip it, and follow
+*READ ME FIRST.txt* inside. Found a problem or have an idea? Open an **Issue**.
 
 One press puts your PC into a saved workspace: the right apps open, apps you don't need close or minimize, and every window lands on the right monitor in the right spot.
 
@@ -38,10 +42,10 @@ Microsoft's .NET runtime packs (one time, about 150-200 MB).
 
 ## GitHub
 
-The code is kept in a **private** GitHub repository (only Bones_84 and invited people can see it). `.gitignore`
-leaves out everything the build scripts make (`out`, `dist`, `bin`, `obj`, `node_modules`...), and `.gitattributes`
-keeps Windows line endings. The tester zip isn't stored with the code: attach `dist\LaunchStage test.zip` to a
-GitHub **Release** (marked as a pre-release) for invited testers to download.
+The code is in a **public** GitHub repository (anyone can see it; the license still reserves all rights).
+`.gitignore` leaves out everything the build scripts make (`out`, `dist`, `bin`, `obj`, `node_modules`...), and
+`.gitattributes` keeps Windows line endings. The download zip isn't stored with the code: attach
+`dist\LaunchStage test.zip` to a GitHub **Release** (marked as a pre-release while it's an early version).
 
 ## Use the app
 

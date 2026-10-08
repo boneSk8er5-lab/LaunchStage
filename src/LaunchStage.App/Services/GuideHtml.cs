@@ -66,7 +66,7 @@ internal static class GuideHtml
 
         html.Append($"""
             <div class="cover"><h1>LaunchStage guide</h1><p>Your whole workspace in one press. Version {Encode(version)}.</p>
-            <p class="rights">{Encode(AppInfo.Copyright)} {Encode(AppInfo.TestNotice)}</p></div>
+            <p class="rights">{Encode(AppInfo.Copyright)} {Encode(AppInfo.UseNotice)}</p></div>
             <nav><strong>In this guide</strong><ol>
             """);
         foreach (var topic in Guide.Topics)

@@ -28,7 +28,7 @@ public partial class HelpWindow : Window
         InitializeComponent();
         DarkTitleBar.Apply(this);
         TopicsList.ItemsSource = Guide.Topics;
-        AboutText.Text = $"LaunchStage {AppInfo.Version}\n{AppInfo.Copyright}\n{AppInfo.TestNotice}";
+        AboutText.Text = $"LaunchStage {AppInfo.Version}\n{AppInfo.Copyright}\n{AppInfo.UseNotice}";
         PreviewKeyDown += (_, e) =>
         {
             if (e.Key == Key.Escape)

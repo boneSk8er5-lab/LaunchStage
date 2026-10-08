@@ -2,33 +2,34 @@ LaunchStage
 Copyright (c) 2026 Bones_84. All rights reserved.
 
 LaunchStage, including its programs, source code, user guide, pictures and Stream Deck plugin (together, "the
-Software"), is owned by Bones_84 and is protected by copyright law. It is not free or open-source software.
+Software"), is owned by Bones_84 and is protected by copyright law. It is free to use, but it is not open-source
+software.
 
-1. TESTING ONLY
-   If you received a copy of the Software directly from Bones_84, you may install it and use it on your own
-   computers for the purpose of testing it and giving feedback to Bones_84. This permission is personal to you and
-   ends when Bones_84 asks you to stop or releases a newer version to you.
+1. FREE FOR PERSONAL USE
+   You may download the Software from Bones_84's official LaunchStage page on GitHub, install it on your own
+   computers, and use it for free for your own personal, non-commercial use.
 
 2. WHAT YOU MAY NOT DO
    Without the prior written permission and consent of Bones_84, you may not:
-   - copy, share, distribute, publish, upload, post, sell, rent, lend or give away the Software or any part of it,
-     including through links, file-sharing sites, app stores or social media;
-   - let anyone else use your copy;
-   - change, translate, decompile, disassemble or reverse engineer the Software, or make other works based on it,
-     except where the law allows this despite this limit;
+   - copy, share, distribute, re-upload, publish, post, sell, rent, lend or give away the Software or any part of
+     it, anywhere other than by linking to the official LaunchStage page on GitHub;
+   - use the Software, or any part of it, in a business or for any commercial purpose;
+   - change, translate, decompile, disassemble or reverse engineer the Software, or reuse its source code, or make
+     other works based on it, except where the law allows this despite this limit;
    - remove or change this notice or any copyright notice in the Software.
+   Seeing the source code on GitHub does not give you permission to use, copy or reuse it.
 
 3. OWNERSHIP
    The Software is licensed to you, not sold. Bones_84 keeps all rights, title and interest in the Software. All
    rights not expressly given in this notice are reserved.
 
 4. NO WARRANTY
-   The Software is a test version, provided "as is", without any warranty of any kind. It may contain mistakes.
-   Bones_84 is not responsible for any loss or damage that comes from using it, to the extent the law allows.
-   Save your work before using it.
+   The Software is provided "as is", without any warranty of any kind. It may contain mistakes. Bones_84 is not
+   responsible for any loss or damage that comes from using it, to the extent the law allows. Save your work
+   before using it.
 
 5. ENDING
    If you break any of these terms, your permission to use the Software ends right away, and you must delete every
    copy you have.
 
-To ask for permission, contact Bones_84.
+To ask for permission, contact Bones_84 through the official LaunchStage page on GitHub.

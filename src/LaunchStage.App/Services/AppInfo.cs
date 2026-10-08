@@ -17,8 +17,9 @@ internal static class AppInfo
         (Self.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Copyright (c) Bones_84. All rights reserved.")
         .Replace("(c)", "©");
 
-    /// <summary>The short notice for testers.</summary>
-    public const string TestNotice = "Test version. Please don't share it without permission from Bones_84.";
+    /// <summary>The short version of the license.</summary>
+    public const string UseNotice =
+        "Free for personal use. Download it only from the official LaunchStage page on GitHub; please don't share or re-upload it.";
 
     /// <summary>Opens LICENSE.txt (next to LaunchStage.exe) in the normal text viewer.</summary>
     public static void OpenLicense()
@@ -26,7 +27,7 @@ internal static class AppInfo
         string file = Path.Combine(AppContext.BaseDirectory, "LICENSE.txt");
         if (!File.Exists(file))
         {
-            Dialogs.Info(null, Copyright + "\n\n" + TestNotice);
+            Dialogs.Info(null, Copyright + "\n\n" + UseNotice);
             return;
         }
 
@@ -38,7 +39,7 @@ internal static class AppInfo
         catch (Exception ex)
         {
             Log.Warn($"Couldn't open the license: {ex.Message}");
-            Dialogs.Info(null, Copyright + "\n\n" + TestNotice);
+            Dialogs.Info(null, Copyright + "\n\n" + UseNotice);
         }
     }
 }

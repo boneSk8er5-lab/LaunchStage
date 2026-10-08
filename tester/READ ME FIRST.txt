@@ -1,9 +1,10 @@
-LaunchStage - test version
+LaunchStage (early version)
 Copyright (c) 2026 Bones_84. All rights reserved.
 
-Thanks for testing LaunchStage!
+Thanks for trying LaunchStage!
 
-This copy is for you only. Please don't share, upload or give it to anyone without permission from Bones_84.
+LaunchStage is free for personal use. Please only download it from the official LaunchStage page on GitHub,
+and don't share, re-upload or sell it. To tell a friend about it, send them the link to the GitHub page.
 The full terms are in LICENSE.txt.
 
 
@@ -13,7 +14,7 @@ INSTALL
    for example your Documents folder. (Don't run it from inside the zip.)
 2. Open that folder and double-click LaunchStage.exe.
 3. If Windows says "Windows protected your PC": click "More info", then "Run anyway".
-   This shows because the test version isn't signed yet.
+   This shows because this early version isn't signed yet.
 4. A short "Getting started" walkthrough shows you how to make your first profile.
 
 Nothing else needs to be installed.
@@ -36,8 +37,10 @@ GOOD TO KNOW
 
 FEEDBACK
 --------
-Tell Bones_84 what worked, what didn't, and anything that was confusing.
-If something went wrong, please send the log: Settings > Open log.
+Tell Bones_84 what worked, what didn't, and anything that was confusing: on the LaunchStage GitHub page,
+click "Issues", then "New issue". If something went wrong, please attach the log: Settings > Open log.
+Issues are public, and the log lists the titles of your windows (like web page names), so look it over and
+remove anything private before you post it.
 
 
 REMOVE IT

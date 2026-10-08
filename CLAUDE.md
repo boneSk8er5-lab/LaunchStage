@@ -23,13 +23,18 @@ Owner: Bones_84 (a streamer). Read README.md for the user-facing details of ever
   **When a feature or its wording changes, update the matching guide topic too** (and retake pictures if a window
   changed).
 - **All rights reserved** (owner's requirement: nobody may distribute it without the permission and consent of
-  Bones_84). `LICENSE.txt` (testing-only license; copied next to LaunchStage.exe via App.csproj Content, and into the
-  Stream Deck plugin by its `pack` script), `src\Directory.Build.props` (Product/Company/Copyright on every exe/dll),
-  `App/Services/AppInfo` (Version, Copyright, TestNotice, OpenLicense) shown in the launcher footer, Help, Settings,
+  Bones_84). `LICENSE.txt` (owner chose: **free for personal use**, download only from the official GitHub page, no
+  sharing/re-uploading/selling/commercial use/modifying/reusing code; copied next to LaunchStage.exe via App.csproj
+  Content, and into the Stream Deck plugin by its `pack` script), `src\Directory.Build.props`
+  (Product/Company/Copyright on every exe/dll), `App/Services/AppInfo` (Version, Copyright, UseNotice, OpenLicense)
+  shown in the launcher footer, Help, Settings,
   the walkthrough's first page, the guide's cover/footer and the CLI help. Keep these on anything new that's shared.
 - Testers: `make-tester-package.cmd` → `dist\LaunchStage test.zip` (self-contained win-x64 publish, CLI then app,
   into `dist\package\LaunchStage`, plus `tester\READ ME FIRST.txt`, LICENSE, guide PDF, Stream Deck plugin).
-- GitHub: **private** repository (owner's choice), published with GitHub Desktop (no git CLI on this PC). `.gitignore`
+- GitHub: **public** repository (owner switched from private to see if people download it), published with GitHub
+  Desktop (no git CLI on this PC; GitHub Desktop's own git is at
+  `%LocalAppData%\GitHubDesktop\app-*\resources\app\git\cmd\git.exe`). Feedback via GitHub Issues (public: READ ME
+  FIRST warns that logs contain window titles). `.gitignore`
   excludes build output, `dist`, `node_modules` and plugin build files; `.gitattributes` forces CRLF. Tester zips go
   on GitHub Releases (pre-release), not in the repo. Never commit personal paths or the owner's data folder.
 - There are no automated tests yet. After changes, build and check `%AppData%\LaunchStage\Logs\debug_log.txt`.
