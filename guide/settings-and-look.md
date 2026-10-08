@@ -34,7 +34,7 @@ Click **Save** to keep your changes.
 
 LaunchStage doesn't need installing, but it does add a few things to your PC (like starting with Windows). To take it all away again, don't just delete its folder:
 
-1. Open **Settings** and, at the bottom, click **Remove LaunchStage...**. (Or double-click **Uninstall LaunchStage.cmd** in the LaunchStage folder.)
+1. Open **Settings** and, at the bottom, click **Remove LaunchStage...**. (Or double-click **Uninstall LaunchStage.cmd**, next to LaunchStage.exe.)
 2. To keep your profiles, untick **Also delete my profiles, settings and game history**.
 3. Click **Remove LaunchStage**. If you used Admin support, Windows asks for permission once.
 

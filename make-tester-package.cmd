@@ -1,42 +1,33 @@
 @echo off
-rem Makes the zip to send to testers: dist\LaunchStage test.zip
-rem It runs on any Windows 10 or 11 PC without installing anything (.NET is included, so it's bigger).
-rem Inside: the LaunchStage folder (app + command-line tool + LICENSE.txt), READ ME FIRST.txt, LICENSE.txt,
-rem the guide PDF and the Stream Deck plugin (when they've been made with build-guide.cmd / build-streamdeck.cmd).
+rem Makes the zip to share: dist\LaunchStage test.zip
+rem It runs on any Windows 10 or 11 PC without installing anything: .NET is packed inside the two .exe files.
+rem Everything sits in the zip's top folder, so LaunchStage.exe is right there after extracting:
+rem   LaunchStage.exe, LaunchStageCli.exe, a few files WPF needs, READ ME FIRST.txt, LICENSE.txt,
+rem   LaunchStage guide.pdf, Uninstall LaunchStage.cmd, uninstall-files.txt, and the Stream Deck plugin folder
+rem (the PDF and plugin when they've been made with build-guide.cmd / build-streamdeck.cmd).
 rem This doesn't touch the "out" folder that build.cmd makes.
 
 set "DIST=%~dp0dist"
 set "PKG=%DIST%\package"
-set "APP=%PKG%\LaunchStage"
 set "ZIP=%DIST%\LaunchStage test.zip"
+rem One .exe each, with .NET packed in and compressed; no debug files.
+set "PUBLISH=-c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -p:DebugType=none"
 
 if exist "%PKG%" rmdir /s /q "%PKG%"
 if exist "%ZIP%" del /q "%ZIP%"
 
 rem Same order as build.cmd: the command-line tool first, the app second.
 echo Building the command-line tool...
-dotnet publish "%~dp0src\LaunchStage.Cli\LaunchStage.Cli.csproj" -c Release -r win-x64 --self-contained true -o "%APP%"
+dotnet publish "%~dp0src\LaunchStage.Cli\LaunchStage.Cli.csproj" %PUBLISH% -o "%PKG%"
 if errorlevel 1 goto failed
 
 echo.
 echo Building the app...
-dotnet publish "%~dp0src\LaunchStage.App\LaunchStage.App.csproj" -c Release -r win-x64 --self-contained true -o "%APP%"
-if errorlevel 1 goto failed
-
-echo.
-echo Adding the uninstaller...
-> "%APP%\Uninstall LaunchStage.cmd" (
-    echo @echo off
-    echo rem Removes LaunchStage and everything it added to this PC. It asks first.
-    echo start "" "%%~dp0LaunchStage.exe" --uninstall
-)
-rem The list of LaunchStage's own files: Remove LaunchStage deletes only these (never other files in the folder).
-powershell -NoProfile -Command "$app = '%APP%'; $files = @(Get-ChildItem -LiteralPath $app -Recurse -File | ForEach-Object { $_.FullName.Substring($app.Length + 1) }) + 'uninstall-files.txt'; Set-Content -LiteralPath (Join-Path $app 'uninstall-files.txt') -Value $files -Encoding UTF8"
+dotnet publish "%~dp0src\LaunchStage.App\LaunchStage.App.csproj" %PUBLISH% -o "%PKG%"
 if errorlevel 1 goto failed
 
 echo.
 echo Adding the guide, license and instructions...
-copy /y "%~dp0LICENSE.txt" "%PKG%\LICENSE.txt" >nul
 copy /y "%~dp0tester\READ ME FIRST.txt" "%PKG%\READ ME FIRST.txt" >nul
 if exist "%~dp0docs\LaunchStage guide.pdf" (
     copy /y "%~dp0docs\LaunchStage guide.pdf" "%PKG%\LaunchStage guide.pdf" >nul
@@ -47,6 +38,17 @@ if exist "%~dp0streamdeck\dist\com.bones84.launchstage.streamDeckPlugin" (
     mkdir "%PKG%\Stream Deck plugin"
     copy /y "%~dp0streamdeck\dist\com.bones84.launchstage.streamDeckPlugin" "%PKG%\Stream Deck plugin\" >nul
 )
+
+echo.
+echo Adding the uninstaller...
+> "%PKG%\Uninstall LaunchStage.cmd" (
+    echo @echo off
+    echo rem Removes LaunchStage and everything it added to this PC. It asks first.
+    echo start "" "%%~dp0LaunchStage.exe" --uninstall
+)
+rem The list of everything that came in the zip: Remove LaunchStage deletes only these (never other files in the folder).
+powershell -NoProfile -Command "$app = '%PKG%'; $files = @(Get-ChildItem -LiteralPath $app -Recurse -File | ForEach-Object { $_.FullName.Substring($app.Length + 1) }) + 'uninstall-files.txt'; Set-Content -LiteralPath (Join-Path $app 'uninstall-files.txt') -Value $files -Encoding UTF8"
+if errorlevel 1 goto failed
 
 rem Zip with .NET's zip routine (it stops with an error instead of quietly skipping a busy file), then check that
 rem every file made it in.

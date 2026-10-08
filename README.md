@@ -35,8 +35,10 @@ If the build fails, copy the red error lines and send them to Claude.
 ## Send it to testers
 
 Double-click `make-tester-package.cmd`. It makes `dist\LaunchStage test.zip`, which runs on any Windows 10 or 11 PC
-without installing anything (.NET is included). Inside: the LaunchStage folder, **READ ME FIRST.txt** (simple install
-steps and the sharing rules, from `tester\READ ME FIRST.txt`), LICENSE.txt, the guide PDF and the Stream Deck plugin.
+without installing anything (.NET is packed inside each .exe). Everything is in the zip's top folder, so
+**LaunchStage.exe** is right there after extracting, next to **READ ME FIRST.txt** (simple steps and the sharing
+rules, from `tester\READ ME FIRST.txt`), LICENSE.txt, the guide PDF, Uninstall LaunchStage.cmd, LaunchStageCli.exe,
+a few files WPF needs, and the Stream Deck plugin folder.
 Run `build-guide.cmd` and `build-streamdeck.cmd` first so those two are up to date. The first time, `dotnet` downloads
 Microsoft's .NET runtime packs (one time, about 150-200 MB).
 
@@ -129,7 +131,7 @@ card or the tray icon and choose **Put windows back**, or a Stream Deck button w
 
 ## Remove LaunchStage
 
-**Settings > Remove LaunchStage...** (or `Uninstall LaunchStage.cmd` in the downloaded LaunchStage folder, which runs
+**Settings > Remove LaunchStage...** (or `Uninstall LaunchStage.cmd` next to the downloaded LaunchStage.exe, which runs
 `LaunchStage.exe --uninstall`) asks first, then removes everything LaunchStage added: the Start with Windows entry,
 the Admin support scheduled tasks and their Task Scheduler folder, `%AppData%\LaunchStage` (profiles, settings and
 game history only if "Also delete my profiles..." is ticked, which it is by default), the guide's temp copy, and the

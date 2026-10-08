@@ -1,6 +1,9 @@
 LaunchStage (early version)
 Copyright (c) 2026 Bones_84. All rights reserved.
 
+>>> TO START: double-click LaunchStage.exe in this folder.
+>>> (Extract the zip first: right-click it and choose "Extract All...".)
+
 Thanks for trying LaunchStage!
 
 LaunchStage is free for personal use. Please only download it from the official LaunchStage page on GitHub,
@@ -10,9 +13,10 @@ The full terms are in LICENSE.txt.
 
 INSTALL
 -------
-1. Move the whole "LaunchStage" folder from this zip to a place where it can stay,
-   for example your Documents folder. (Don't run it from inside the zip.)
-2. Open that folder and double-click LaunchStage.exe.
+1. Right-click the zip and choose "Extract All...". Pick a place where the folder can stay,
+   for example your Documents folder, and click "Extract". (Don't run it from inside the zip.)
+2. In the folder that opens, double-click LaunchStage.exe. (Windows may show it as just "LaunchStage",
+   with the LaunchStage icon.)
 3. If Windows says "Windows protected your PC": click "More info", then "Run anyway".
    This shows because this early version isn't signed yet.
 4. A short "Getting started" walkthrough shows you how to make your first profile.
@@ -48,7 +52,7 @@ REMOVE IT
 Please don't just delete the folder: LaunchStage would keep trying to start with Windows.
 Instead, either:
 - open LaunchStage, click Settings, and at the bottom click "Remove LaunchStage...", or
-- double-click "Uninstall LaunchStage.cmd" inside the LaunchStage folder.
+- double-click "Uninstall LaunchStage.cmd" (it's next to LaunchStage.exe).
 
 It asks first, then removes everything LaunchStage added to your PC: the Start with Windows entry, Admin
 support, its files and its folder. Untick "Also delete my profiles, settings and game history" if you want to

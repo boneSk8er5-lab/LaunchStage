@@ -29,8 +29,11 @@ Owner: Bones_84 (a streamer). Read README.md for the user-facing details of ever
   (Product/Company/Copyright on every exe/dll), `App/Services/AppInfo` (Version, Copyright, UseNotice, OpenLicense)
   shown in the launcher footer, Help, Settings,
   the walkthrough's first page, the guide's cover/footer and the CLI help. Keep these on anything new that's shared.
-- Testers: `make-tester-package.cmd` → `dist\LaunchStage test.zip` (self-contained win-x64 publish, CLI then app,
-  into `dist\package\LaunchStage`, plus `tester\READ ME FIRST.txt`, LICENSE, guide PDF, Stream Deck plugin).
+- Testers: `make-tester-package.cmd` → `dist\LaunchStage test.zip`. Owner's requirement: **LaunchStage.exe must be
+  in the first folder after extracting**, so everything goes in the zip root (`dist\package`): single-file,
+  self-contained, compressed win-x64 publishes (CLI then app; ~13 files, no temp extraction since native WPF dlls
+  stay beside the exe), READ ME FIRST, LICENSE, guide PDF, Stream Deck plugin folder, `Uninstall LaunchStage.cmd`,
+  and `uninstall-files.txt` listing every file in the zip. Never use `Assembly.Location` (empty in single-file).
 - GitHub: **public** repository (owner switched from private to see if people download it), published with GitHub
   Desktop (no git CLI on this PC; GitHub Desktop's own git is at
   `%LocalAppData%\GitHubDesktop\app-*\resources\app\git\cmd\git.exe`). Feedback via GitHub Issues (public: READ ME
@@ -191,6 +194,9 @@ Soomfon (CommandsDialog shows them).
    danger color (Delete, Close App) is orange, like every other "problem" color (it used to be white).
 6. Easy instructions (owner asked: "do it all"; built, **not yet tested by the owner**): built-in Help with
    12 topics and pictures, ? links, first-run walkthrough, and the web page + PDF in `docs\`.
+7. Released: public GitHub repository with release v0.2.0 (pre-release, "LaunchStage test.zip"), free for personal
+   use. Remove LaunchStage built; its file cleanup was tested on throwaway copies, not yet end-to-end by the owner.
+   Next: watch downloads/Issues, fix what testers report.
 Later: voice commands (Windows built-in speech, fixed phrases, push-to-talk), release packaging
 (self-contained publish, Velopack installer + auto-update, GitHub Releases, uninstall cleanup of scheduled tasks
 and startup entry, version/About screen).
