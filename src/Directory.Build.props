@@ -1,0 +1,9 @@
+<Project>
+  <!-- Shared by every LaunchStage project: who owns it (shown in each file's Properties > Details). -->
+  <PropertyGroup>
+    <Product>LaunchStage</Product>
+    <Company>Bones_84</Company>
+    <Authors>Bones_84</Authors>
+    <Copyright>Copyright (c) 2026 Bones_84. All rights reserved.</Copyright>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,22 @@
+# The LaunchStage guide: one topic per line, in reading order (file name without .md).
+# Each topic is a simple text file in this folder:
+#   # Title                        first line
+#   ## Smaller heading
+#   1. Step                        numbered steps (one per line, in a row)
+#   - Point                        bullet points
+#   ![What the picture shows](picture.png)    a picture from the images folder, on its own line
+#   > Tip text                     a highlighted tip
+#   **bold**, `Ctrl+Alt+1` (keys or exact text), [link text](topic:hotkeys) (link to another topic)
+# Pictures are made by make-guide-pictures.cmd. The web page and PDF are made by build-guide.cmd.
+what-it-does
+first-profile
+open-and-close
+move-windows
+what-closes
+browsers
+hotkeys
+button-pads
+game-picker
+private-profiles
+settings-and-look
+when-something-goes-wrong

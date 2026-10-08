@@ -1,0 +1,160 @@
+<Window x:Class="LaunchStageApp.Views.ProfileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New profile"
+        Width="640" Height="700" MinWidth="540" MinHeight="540"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        Style="{StaticResource DarkWindow}">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Everything scrolls, so no section can be squeezed out when a profile has many apps -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Padding="0,0,6,0">
+        <StackPanel>
+
+        <!-- Name -->
+        <StackPanel Margin="0,0,0,12">
+            <TextBlock Text="Name" Style="{StaticResource SectionTitle}" />
+            <TextBox x:Name="NameBox" MaxLength="60" />
+        </StackPanel>
+
+        <!-- Button look -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="Icon" Style="{StaticResource SectionTitle}" />
+                <WrapPanel x:Name="IconPanel" />
+                <TextBlock Text="Color" Style="{StaticResource SectionTitle}" Margin="0,6,0,8" />
+                <WrapPanel x:Name="ColorPanel" />
+            </StackPanel>
+        </Border>
+
+        <!-- Options -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Apps not in this profile" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="what-closes" Click="Help_Click" /></StackPanel>
+                <WrapPanel>
+                    <RadioButton x:Name="OtherLeave" GroupName="Other" Content="Leave them alone" Margin="0,0,20,6" />
+                    <RadioButton x:Name="OtherMinimize" GroupName="Other" Content="Minimize them" Margin="0,0,20,6" />
+                    <RadioButton x:Name="OtherClose" GroupName="Other" Content="Close them (asks to save first)" Margin="0,0,0,6" />
+                </WrapPanel>
+                <CheckBox x:Name="AllAtOnceBox" Margin="0,6,0,0"
+                          Content="Open all apps at the same time (faster on powerful PCs; normally each app finishes loading before the next starts)" />
+                <CheckBox x:Name="SuggestGamesBox" Margin="0,8,0,0"
+                          Content="Suggest a game when this profile is ready (shows a game picker with your Steam, Epic and added games)" />
+                <CheckBox x:Name="PrivateBox" Margin="0,8,0,0"
+                          Content="Private profile: needs a 4-digit PIN to open, close, edit, export or delete"
+                          Checked="Private_Changed" Unchecked="Private_Changed" />
+                <StackPanel x:Name="PinPanel" Margin="24,8,0,0" Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="PIN" VerticalAlignment="Center" Width="60" />
+                        <PasswordBox x:Name="PinBox" Width="90" MaxLength="4" PreviewTextInput="Digits_PreviewTextInput" />
+                        <TextBlock Text="Again" VerticalAlignment="Center" Margin="16,0,0,0" Width="50" />
+                        <PasswordBox x:Name="PinConfirmBox" Width="90" MaxLength="4" PreviewTextInput="Digits_PreviewTextInput" />
+                    </StackPanel>
+                    <TextBlock x:Name="PinHint" Style="{StaticResource Hint}" Margin="0,6,0,0"
+                               Text="4 digits. LaunchStage only keeps a scrambled copy, so a forgotten PIN can't be recovered." />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,14,0,6"><TextBlock Text="Hotkeys" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="hotkeys" Click="Help_Click" /></StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Open / close this profile" VerticalAlignment="Center" Margin="0,0,12,6" />
+                    <TextBox x:Name="HotkeyBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,6"
+                             ToolTip="Click here and press the keys, like Ctrl+Alt+1" />
+                    <Button Grid.Row="0" Grid.Column="2" Content="Clear" Padding="10,3" Margin="6,0,0,6" Click="ClearHotkey_Click" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Put its windows back" VerticalAlignment="Center" Margin="0,0,12,6" />
+                    <TextBox x:Name="ResnapHotkeyBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,6"
+                             ToolTip="Click here and press the keys, like Ctrl+Alt+Shift+1" />
+                    <Button Grid.Row="1" Grid.Column="2" Content="Clear" Padding="10,3" Margin="6,0,0,6" Click="ClearResnapHotkey_Click" />
+                </Grid>
+                <TextBlock Style="{StaticResource Hint}" TextWrapping="Wrap"
+                           Text="Click a box and press the keys (use Ctrl, Alt or Win with a key, or F13 to F24 alone). They work anywhere while LaunchStage is running. The first opens this profile, or closes it if it's already open. The second puts its open windows back in their spots without opening or closing anything." />
+            </StackPanel>
+        </Border>
+
+        <!-- Apps from the windows open now -->
+        <Border Style="{StaticResource Card}">
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+                    <Button DockPanel.Dock="Right" Content="Refresh list" Padding="10,4" Click="Refresh_Click" />
+                    <TextBlock x:Name="AppsTitle" Text="Apps: tick the windows that belong" Style="{StaticResource SectionTitle}"
+                               Margin="0" VerticalAlignment="Center" />
+                </DockPanel>
+                <CheckBox x:Name="ReplaceAppsBox" DockPanel.Dock="Top" Margin="0,0,0,6" Visibility="Collapsed"
+                          Content="Replace this profile's apps with the windows ticked below"
+                          Checked="ReplaceApps_Changed" Unchecked="ReplaceApps_Changed" />
+                <TextBlock x:Name="AppsHint" DockPanel.Dock="Top" Style="{StaticResource Hint}" Margin="0,0,0,10"
+                           Text="Arrange your windows first. Each window's monitor, size and position are saved when you press Save." />
+                <ScrollViewer VerticalScrollBarVisibility="Auto" MinHeight="120" MaxHeight="320">
+                    <ItemsControl x:Name="WindowsList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Margin="0,0,0,8" Click="WindowRow_Click">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Title}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+                                        <TextBlock Text="{Binding Detail}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+
+        <!-- Per-app options: admin rights, and what "Close profile" closes -->
+        <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+            <StackPanel>
+                <TextBlock Text="Run as administrator" Style="{StaticResource SectionTitle}" />
+                <WrapPanel x:Name="AdminPanel" />
+                <TextBlock x:Name="AdminHint" Style="{StaticResource Hint}" Margin="0,0,0,12" />
+
+                <StackPanel x:Name="PrivateSection" Visibility="Collapsed" Margin="0,0,0,12">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Open these browser windows as private / incognito" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="browsers" Click="Help_Click" /></StackPanel>
+                    <StackPanel x:Name="PrivatePanel" />
+                    <TextBlock Style="{StaticResource Hint}"
+                               Text="Edge and Firefox private windows are ticked automatically. Chrome and Brave don't show it in the title, so tick those yourself." />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="When you close this profile, close" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="what-closes" Click="Help_Click" /></StackPanel>
+                <WrapPanel x:Name="ClosePanel" />
+                <StackPanel x:Name="CloseWindowsPanel" />
+                <TextBlock x:Name="CloseEmpty" Style="{StaticResource Hint}"
+                           Text="Tick some windows above and they'll show up here." />
+                <CheckBox x:Name="RestoreKeptBox" Margin="0,8,0,0"
+                          Content="Put the apps that stay open back where they were before the profile started" />
+                <CheckBox x:Name="ResetBeforeCloseBox" Margin="0,6,0,0"
+                          Content="Move windows back to their profile spots before closing them, so apps that remember their position don't remember where you dragged them" />
+            </StackPanel>
+        </Border>
+
+        </StackPanel>
+        </ScrollViewer>
+
+        <!-- Buttons (always visible) -->
+        <DockPanel Grid.Row="1" Margin="0,12,0,0">
+            <Button x:Name="CommandsButton" DockPanel.Dock="Left" Content="Stream Deck commands..." Margin="0,0,12,0"
+                    Visibility="Collapsed" Click="Commands_Click"
+                    ToolTip="Show the command lines that open or close this profile, ready to copy" />
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button Content="Cancel" IsCancel="True" Margin="0,0,8,0" />
+                <Button Content="Save profile" Style="{StaticResource AccentButton}" IsDefault="True" Click="Save_Click" />
+            </StackPanel>
+            <TextBlock x:Name="ErrorText" Foreground="{DynamicResource BadBrush}" VerticalAlignment="Center"
+                       TextWrapping="Wrap" Margin="0,0,12,0" />
+        </DockPanel>
+    </Grid>
+</Window>

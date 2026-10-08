@@ -1,0 +1,81 @@
+{
+	"Name": "LaunchStage",
+	"Version": "0.1.0.0",
+	"Author": "Bones_84",
+	"Actions": [
+		{
+			"Name": "Profile",
+			"UUID": "com.bones84.launchstage.profile",
+			"Icon": "imgs/actions/profile/icon",
+			"Tooltip": "Opens or closes a LaunchStage profile. Lights up while the profile is open.",
+			"PropertyInspectorPath": "ui/profile.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"DisableAutomaticStates": true,
+			"States": [
+				{
+					"Image": "imgs/actions/profile/key",
+					"TitleAlignment": "bottom",
+					"Name": "Closed"
+				},
+				{
+					"Image": "imgs/actions/profile/key-open",
+					"TitleAlignment": "bottom",
+					"Name": "Open"
+				}
+			]
+		},
+		{
+			"Name": "Put windows back",
+			"UUID": "com.bones84.launchstage.resnap",
+			"Icon": "imgs/actions/resnap/icon",
+			"Tooltip": "Puts an open profile's windows back in their spots, without opening or closing anything.",
+			"PropertyInspectorPath": "ui/resnap.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/resnap/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Play a game",
+			"UUID": "com.bones84.launchstage.games",
+			"Icon": "imgs/actions/games/icon",
+			"Tooltip": "Opens LaunchStage's game picker.",
+			"PropertyInspectorPath": "ui/games.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/games/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		}
+	],
+	"Category": "LaunchStage",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Open, close and re-snap your LaunchStage workspace profiles, and open the game picker, from Stream Deck buttons. Needs LaunchStage on the same PC. Copyright (c) 2026 Bones_84. All rights reserved.",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24"
+	},
+	"UUID": "com.bones84.launchstage"
+}

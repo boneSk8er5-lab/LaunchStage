@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <!-- Only for the tray icon (NotifyIcon). -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>LaunchStage</AssemblyName>
+    <RootNamespace>LaunchStageApp</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\LaunchStage.ico</ApplicationIcon>
+    <Version>0.2.0</Version>
+    <!-- WPF handles DPI through app.manifest; this WinForms hint does not apply. -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
+  </PropertyGroup>
+
+  <!-- WinForms names (Application, MessageBox...) would clash with WPF's, so they're used by full name only. -->
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\LaunchStage.ico" />
+  </ItemGroup>
+
+  <!-- The license (all rights reserved) goes next to LaunchStage.exe. -->
+  <ItemGroup>
+    <Content Include="..\..\LICENSE.txt" Link="LICENSE.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- The guide (repo folder "guide"): text files and pictures, built in as Guide/... for the Help window. -->
+  <ItemGroup>
+    <Resource Include="..\..\guide\topics.txt" Link="Guide\topics.txt" />
+    <Resource Include="..\..\guide\*.md" Link="Guide\%(Filename)%(Extension)" />
+    <Resource Include="..\..\guide\images\*.png" Link="Guide\images\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LaunchStage.Core\LaunchStage.Core.csproj" />
+  </ItemGroup>
+
+</Project>

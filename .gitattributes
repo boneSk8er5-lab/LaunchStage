@@ -1,0 +1,9 @@
+# Keep Windows line endings (CRLF) in every text file, as the project uses everywhere.
+* text=auto eol=crlf
+
+# Never touch these: they're not text.
+*.png binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.streamDeckPlugin binary

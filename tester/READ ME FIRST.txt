@@ -1,0 +1,50 @@
+LaunchStage - test version
+Copyright (c) 2026 Bones_84. All rights reserved.
+
+Thanks for testing LaunchStage!
+
+This copy is for you only. Please don't share, upload or give it to anyone without permission from Bones_84.
+The full terms are in LICENSE.txt.
+
+
+INSTALL
+-------
+1. Move the whole "LaunchStage" folder from this zip to a place where it can stay,
+   for example your Documents folder. (Don't run it from inside the zip.)
+2. Open that folder and double-click LaunchStage.exe.
+3. If Windows says "Windows protected your PC": click "More info", then "Run anyway".
+   This shows because the test version isn't signed yet.
+4. A short "Getting started" walkthrough shows you how to make your first profile.
+
+Nothing else needs to be installed.
+
+
+HELP
+----
+- Click "Help" at the top of the LaunchStage window (or press F1).
+- Or open "LaunchStage guide.pdf" from this zip.
+
+
+GOOD TO KNOW
+------------
+- LaunchStage starts with Windows and waits in the tray (by the clock). To stop that:
+  Settings > General > untick "Start with Windows".
+- Closing the LaunchStage window keeps it running in the tray. "Close App" exits completely.
+- Have an Elgato Stream Deck (Stream Deck app 7.1 or newer)? Double-click the file in the
+  "Stream Deck plugin" folder to add LaunchStage buttons.
+
+
+FEEDBACK
+--------
+Tell Bones_84 what worked, what didn't, and anything that was confusing.
+If something went wrong, please send the log: Settings > Open log.
+
+
+REMOVE IT
+---------
+1. In LaunchStage, open Settings, untick "Start with Windows" and "Run LaunchStage with administrator
+   rights" (if you turned it on), and click Save.
+2. Right-click the tray icon and click Exit.
+3. Delete the LaunchStage folder.
+4. Optional: delete your profiles and settings too: press Windows+R, type %AppData%\LaunchStage, press Enter,
+   and delete that folder.

@@ -1,0 +1,160 @@
+<Window x:Class="LaunchStageApp.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LaunchStage settings"
+        Width="560" SizeToContent="Height" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Assets/LaunchStage.ico"
+        Style="{StaticResource DarkWindow}">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Scrolls when the screen is too small to show everything; Save and Cancel stay visible -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Padding="0,0,6,0">
+        <StackPanel>
+        <!-- General -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="General" Style="{StaticResource SectionTitle}" />
+                <CheckBox x:Name="StartWithWindowsBox" Content="Start with Windows (waits quietly in the tray)" Margin="0,0,0,8" />
+                <CheckBox x:Name="TrayBox" Content="Show the tray icon (closing the window keeps LaunchStage ready)" Margin="0,0,0,8" />
+                <CheckBox x:Name="ColorBlindBox" Content="Red-green (deuteranopia) vision assist" />
+            </StackPanel>
+        </Border>
+
+        <!-- Look -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Look" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="settings-and-look" Click="Help_Click" /></StackPanel>
+                <TextBlock Text="Colors" Style="{StaticResource Hint}" Margin="0,0,0,4" />
+                <WrapPanel Margin="0,0,0,8">
+                    <RadioButton x:Name="ThemeDark" GroupName="Theme" Content="Dark" Margin="0,0,20,6" />
+                    <RadioButton x:Name="ThemeLight" GroupName="Theme" Content="Light" Margin="0,0,20,6" />
+                    <RadioButton x:Name="ThemeSystem" GroupName="Theme" Content="Match Windows" Margin="0,0,0,6"
+                                 ToolTip="Follows Windows' light or dark app setting, and switches when you change it" />
+                </WrapPanel>
+                <TextBlock Text="Launcher layout" Style="{StaticResource Hint}" Margin="0,0,0,4" />
+                <WrapPanel>
+                    <RadioButton x:Name="LayoutCards" GroupName="Layout" Content="Cards" Margin="0,0,20,6" />
+                    <RadioButton x:Name="LayoutSmall" GroupName="Layout" Content="Small cards" Margin="0,0,20,6" />
+                    <RadioButton x:Name="LayoutList" GroupName="Layout" Content="List" Margin="0,0,20,6" />
+                    <RadioButton x:Name="LayoutTiles" GroupName="Layout" Content="Big tiles" Margin="0,0,0,6" />
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Admin support -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Admin support" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="settings-and-look" Click="Help_Click" /></StackPanel>
+                <CheckBox x:Name="AdminBox" Content="Run LaunchStage with administrator rights" />
+                <TextBlock Style="{StaticResource Hint}" Margin="26,4,0,0"
+                           Text="Lets LaunchStage move and close apps that run as administrator, and start apps marked 'Run as administrator' without a prompt each time. Windows asks for permission once. Your other apps still start as normal apps." />
+                <TextBlock x:Name="AdminStatus" Margin="26,8,0,0" TextWrapping="Wrap" FontWeight="SemiBold" />
+            </StackPanel>
+        </Border>
+
+        <!-- What LaunchStage does after a profile -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="After a profile finishes, LaunchStage" Style="{StaticResource SectionTitle}" />
+                <WrapPanel>
+                    <RadioButton x:Name="AfterTray" GroupName="After" Content="Goes to the tray" Margin="0,0,20,6" />
+                    <RadioButton x:Name="AfterMinimize" GroupName="After" Content="Minimizes" Margin="0,0,20,6" />
+                    <RadioButton x:Name="AfterStay" GroupName="After" Content="Stays open" Margin="0,0,0,6" />
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Hotkeys -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Hotkeys" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="hotkeys" Click="Help_Click" /></StackPanel>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left" Text="Open the game picker" VerticalAlignment="Center" Margin="0,0,12,0" />
+                    <Button DockPanel.Dock="Right" Content="Clear" Padding="10,3" Margin="6,0,0,0" Click="ClearGameHotkey_Click" />
+                    <TextBox x:Name="GameHotkeyBox" Width="180" HorizontalAlignment="Left"
+                             ToolTip="Click here and press the keys, like Ctrl+Alt+G" />
+                </DockPanel>
+                <TextBlock Style="{StaticResource Hint}" Margin="0,6,0,0" TextWrapping="Wrap"
+                           Text="Click the box and press the keys. Each profile's own hotkeys are in its Name, look &amp; options window." />
+                <TextBlock x:Name="HotkeyError" Foreground="{DynamicResource BadBrush}" TextWrapping="Wrap" Margin="0,6,0,0"
+                           Visibility="Collapsed" />
+            </StackPanel>
+        </Border>
+
+        <!-- Never close -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8"><TextBlock Text="Never close" Style="{StaticResource SectionTitle}" Margin="0" VerticalAlignment="Center" /><Button Style="{StaticResource HelpLink}" Tag="what-closes" Click="Help_Click" /></StackPanel>
+                <TextBlock Style="{StaticResource Hint}" Margin="0,0,0,10"
+                           Text="No profile will ever close or minimize these apps. Start typing to find one, or browse for its .exe." />
+
+                <WrapPanel x:Name="NeverClosePanel" />
+                <TextBlock x:Name="NeverCloseEmpty" Text="Nothing added yet." Style="{StaticResource Hint}" Margin="0,0,0,8" />
+
+                <DockPanel Margin="0,4,0,0">
+                    <Button DockPanel.Dock="Right" Content="Browse..." Margin="8,0,0,0" Click="BrowseApp_Click" />
+                    <Grid>
+                        <TextBox x:Name="AppSearchBox"
+                                 TextChanged="AppSearch_TextChanged"
+                                 PreviewKeyDown="AppSearch_PreviewKeyDown" />
+                        <TextBlock x:Name="AppSearchPlaceholder" Text="Type an app name, like Spotify..."
+                                   IsHitTestVisible="False" Margin="9,0,0,0" VerticalAlignment="Center"
+                                   Foreground="{DynamicResource TextSecondaryBrush}" />
+                    </Grid>
+                </DockPanel>
+                <TextBlock x:Name="CatalogStatus" Text="Finding your apps..." Style="{StaticResource Hint}" Margin="0,6,0,0" />
+
+                <Popup x:Name="SuggestionPopup"
+                       PlacementTarget="{Binding ElementName=AppSearchBox}"
+                       Placement="Bottom" StaysOpen="False" AllowsTransparency="True"
+                       Width="{Binding ActualWidth, ElementName=AppSearchBox}">
+                    <Border Margin="0,4,0,0" Padding="4" CornerRadius="6" BorderThickness="1"
+                            Background="{DynamicResource PanelBrush}" BorderBrush="{DynamicResource ButtonBorderBrush}">
+                        <ListBox x:Name="SuggestionList" MaxHeight="260"
+                                 PreviewMouseLeftButtonUp="SuggestionList_MouseUp"
+                                 PreviewKeyDown="SuggestionList_PreviewKeyDown">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name}" FontWeight="SemiBold" />
+                                        <TextBlock Text="{Binding Detail}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
+                </Popup>
+            </StackPanel>
+        </Border>
+
+        <!-- Profiles -->
+        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+            <StackPanel>
+                <TextBlock Text="Profiles" Style="{StaticResource SectionTitle}" />
+                <WrapPanel>
+                    <Button Content="Import profile..." Margin="0,0,8,8" Click="Import_Click" />
+                    <Button x:Name="ExportButton" Content="Export profile..." Margin="0,0,8,8" Click="Export_Click" />
+                    <Button Content="Open profiles folder" Margin="0,0,8,8" Click="OpenFolder_Click" />
+                    <Button Content="Open log" Margin="0,0,8,8" Click="OpenLog_Click" />
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+        </StackPanel>
+        </ScrollViewer>
+
+        <DockPanel Grid.Row="1" Margin="0,4,0,0">
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button Content="Cancel" IsCancel="True" Margin="0,0,8,0" />
+                <Button Content="Save" Style="{StaticResource AccentButton}" IsDefault="True" Click="Save_Click" />
+            </StackPanel>
+            <TextBlock x:Name="CopyrightText" Style="{StaticResource Hint}" VerticalAlignment="Center" Cursor="Hand"
+                       ToolTip="Click to read the license" MouseLeftButtonUp="Copyright_Click" />
+        </DockPanel>
+    </Grid>
+</Window>

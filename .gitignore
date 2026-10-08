@@ -1,0 +1,26 @@
+# Files Git (and GitHub Desktop) leaves out: build output, downloads and editor files.
+# Everything here can be made again with the build scripts.
+
+# .NET build output
+bin/
+obj/
+out/
+*.user
+
+# Tester package (make-tester-package.cmd); upload the zip as a GitHub Release instead
+dist/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Stream Deck plugin: downloaded tools and build output (build-streamdeck.cmd makes them again)
+node_modules/
+streamdeck/*.sdPlugin/bin/
+streamdeck/*.sdPlugin/logs/
+streamdeck/*.sdPlugin/LICENSE.txt
+
+# Leftovers
+*.tmp
+Thumbs.db
+desktop.ini

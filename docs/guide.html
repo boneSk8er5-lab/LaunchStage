@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LaunchStage guide</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 15px; line-height: 1.55; color: #1F1F1F;
+         background: #F3F3F3; margin: 0; }
+  main { max-width: 820px; margin: 0 auto; padding: 32px 24px 64px; }
+  .cover { border-top: 8px solid #00838F; background: #FFFFFF; border-radius: 8px; padding: 28px 32px; margin-bottom: 24px; }
+  .cover h1 { margin: 0 0 6px; font-size: 32px; }
+  .cover p { margin: 0; color: #5F5F5F; }
+  .cover p.rights { margin-top: 10px; font-size: 13px; }
+  footer { color: #5F5F5F; font-size: 12.5px; text-align: center; padding: 8px 24px 0; }
+  nav { background: #FFFFFF; border-radius: 8px; padding: 18px 32px; margin-bottom: 24px; }
+  nav ol { margin: 8px 0 0; padding-left: 22px; }
+  nav a { color: #00838F; text-decoration: none; }
+  section { background: #FFFFFF; border-radius: 8px; padding: 26px 32px; margin-bottom: 24px; }
+  h1 { font-size: 26px; margin: 0 0 14px; }
+  h2 { font-size: 19px; margin: 26px 0 8px; }
+  a { color: #00838F; }
+  code { font-family: Consolas, monospace; background: #EBEBEB; border: 1px solid #DDDDDD; border-radius: 4px;
+         padding: 0 5px; font-size: 13.5px; }
+  ol li, ul li { margin-bottom: 6px; }
+  figure { margin: 18px 0; }
+  figure img { max-width: 100%; border: 1px solid #DDDDDD; border-radius: 6px; }
+  figcaption { color: #5F5F5F; font-size: 13px; margin-top: 4px; }
+  .tip { border-left: 4px solid #00838F; background: #EEF7F7; border-radius: 4px; padding: 10px 14px; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td { border: 1px solid #DDDDDD; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background: #F3F3F3; }
+  @media print {
+    body { background: #FFFFFF; font-size: 12pt; }
+    main { padding: 0; max-width: none; }
+    .cover, nav, section { border-radius: 0; padding: 0; margin: 0 0 18px; }
+    section { break-before: page; }
+    figure, .tip, table { break-inside: avoid; }
+    a { color: #1F1F1F; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<main><div class="cover"><h1>LaunchStage guide</h1><p>Your whole workspace in one press. Version 0.2.0.</p>
+<p class="rights">Copyright &#169; 2026 Bones_84. All rights reserved. Test version. Please don&#39;t share it without permission from Bones_84.</p></div>
+<nav><strong>In this guide</strong><ol><li><a href="#what-it-does">What LaunchStage does</a></li><li><a href="#first-profile">Make your first profile</a></li><li><a href="#open-and-close">Open and close a profile</a></li><li><a href="#move-windows">Move and resize windows</a></li><li><a href="#what-closes">Which apps close</a></li><li><a href="#browsers">Browser windows and websites</a></li><li><a href="#hotkeys">Hotkeys</a></li><li><a href="#button-pads">Stream Deck and other button pads</a></li><li><a href="#game-picker">Game picker</a></li><li><a href="#private-profiles">Private profiles (PIN)</a></li><li><a href="#settings-and-look">Settings and look</a></li><li><a href="#when-something-goes-wrong">When something goes wrong</a></li></ol></nav>
+<section id="what-it-does">
+<h1>What LaunchStage does</h1>
+<p>LaunchStage sets up your whole PC for one job with one press.</p>
+<p>You make a <strong>profile</strong> for each thing you do, like <em>Stream</em>, <em>Coding</em> or <em>Gaming</em>. A profile remembers:</p>
+<ul><li>which apps you need (OBS, Discord, a browser on your dashboard...)</li><li>exactly where each window goes, on which monitor, and how big it is</li><li>what happens to the apps you don&#39;t need: leave them, minimize them or close them</li></ul>
+<p>When you open the profile, LaunchStage opens the apps one at a time, waits until each one is ready, and puts every window in its spot. When you&#39;re done, closing the profile closes those apps again.</p>
+<figure><img src="images/launcher.png" alt="The LaunchStage window with a card for each profile" /><figcaption>The LaunchStage window with a card for each profile</figcaption></figure>
+<div class="tip"><strong>Tip:</strong> LaunchStage never force-closes anything. It closes apps the same way you would by clicking X, one at a time, and waits if an app asks to save your work.</div>
+<h2>Where to find it</h2>
+<ul><li><strong>The LaunchStage window:</strong> one card for each profile. Double-click a card to open that profile.</li><li><strong>The tray icon</strong> (by the clock, bottom right): right-click it to open or close a profile without opening the window.</li><li><strong>Hotkeys and button pads:</strong> a key or a button for each profile. See <a href="#hotkeys">Hotkeys</a> and <a href="#button-pads">Stream Deck and other button pads</a>.</li></ul>
+<p>Next: <a href="#first-profile">Make your first profile</a>.</p>
+</section>
+<section id="first-profile">
+<h1>Make your first profile</h1>
+<p>A profile is made from the windows you have open right now, so set things up the way you like them first.</p>
+<ol><li>Open every app you want in the profile.</li><li>Put each window where you want it and make it the size you want. Use all your monitors if you like.</li><li>In LaunchStage, click the dashed <strong>New profile</strong> card.</li><li>Type a <strong>Name</strong>, like <code>Stream</code>.</li><li>Pick an <strong>Icon</strong> and a <strong>Color</strong> for the card.</li><li>Under <strong>Apps not in this profile</strong>, choose what happens to everything else: <strong>Leave them alone</strong>, <strong>Minimize them</strong> or <strong>Close them</strong>.</li><li>In the list of windows, tick each window that belongs to this profile.</li><li>Click <strong>Save profile</strong>.</li></ol>
+<figure><img src="images/new-profile.png" alt="The New profile window: name, icon, color, and the windows to tick" /><figcaption>The New profile window: name, icon, color, and the windows to tick</figcaption></figure>
+<p>That&#39;s it. Your new profile shows up as a card in the LaunchStage window.</p>
+<div class="tip"><strong>Tip:</strong> Moved a window after you saved? No problem. You can change everything later. See <a href="#move-windows">Move and resize windows</a>.</div>
+<h2>Good to know</h2>
+<ul><li><strong>Apps that are already open</strong> are reused when the profile opens, just moved into place. LaunchStage only opens what&#39;s missing.</li><li><strong>Apps that run as administrator</strong> (some games, tools) need <strong>Admin support</strong>. Turn it on in <strong>Settings</strong>. See <a href="#settings-and-look">Settings and look</a>.</li><li><strong>Browser windows</strong> can open on their own websites. See <a href="#browsers">Browser windows and websites</a>.</li></ul>
+</section>
+<section id="open-and-close">
+<h1>Open and close a profile</h1>
+<h2>Open a profile</h2>
+<p>Any of these work:</p>
+<ul><li>Double-click the profile&#39;s card in the LaunchStage window.</li><li>Right-click the tray icon and click the profile&#39;s name.</li><li>Press the profile&#39;s hotkey (see <a href="#hotkeys">Hotkeys</a>).</li><li>Press its button on a Stream Deck or other button pad (see <a href="#button-pads">Stream Deck and other button pads</a>).</li></ul>
+<p>A small box in the bottom-right corner shows what LaunchStage is doing, and says <strong>is ready</strong> when everything is in place.</p>
+<figure><img src="images/status-popup.png" alt="The progress box in the corner of the screen" /><figcaption>The progress box in the corner of the screen</figcaption></figure>
+<div class="tip"><strong>Tip:</strong> Wait for one profile to finish before opening another. While a profile is being set up, the cards are greyed out.</div>
+<h2>Close a profile</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Close profile</strong>. (Or right-click the tray icon, then <strong>Close a profile</strong>.)</li><li>LaunchStage closes the profile&#39;s apps one at a time.</li><li>If an app asks &quot;Save changes?&quot;, answer it. LaunchStage waits for you.</li></ol>
+<p>If an app doesn&#39;t close (for example, you clicked <strong>Cancel</strong> when it asked to save), the corner box asks what to do:</p>
+<ul><li><strong>Try again:</strong> asks the app to close once more.</li><li><strong>Leave it open &amp; continue:</strong> skips that app and closes the rest.</li><li><strong>Stop profile:</strong> stops right there.</li></ul>
+<p>Apps you chose to keep open go back to where they were before the profile started.</p>
+<h2>Put windows back</h2>
+<p>Dragged windows around during a session? Right-click the card and click <strong>Put windows back</strong>. Every open window of that profile jumps back to its spot. Nothing is opened or closed.</p>
+<h2>The card&#39;s right-click menu</h2>
+<table><tr><th>Menu item</th><th>What it does</th></tr><tr><td><strong>Activate</strong></td><td>Opens the profile</td></tr><tr><td><strong>Close profile</strong></td><td>Closes the profile&#39;s apps</td></tr><tr><td><strong>Put windows back</strong></td><td>Moves the open windows back to their spots</td></tr><tr><td><strong>Edit layout &amp; apps...</strong></td><td>Move windows, add or remove apps (see <a href="#move-windows">Move and resize windows</a>)</td></tr><tr><td><strong>Name, look &amp; options...</strong></td><td>Name, icon, color, options, hotkeys and PIN</td></tr><tr><td><strong>Duplicate</strong></td><td>Makes a copy to start a new profile from</td></tr><tr><td><strong>Stream Deck commands...</strong></td><td>Command lines for button pads and shortcuts</td></tr><tr><td><strong>Add to favorites</strong></td><td>Puts the card first, with a star</td></tr><tr><td><strong>Export...</strong></td><td>Saves the profile as a file to back it up or share it</td></tr><tr><td><strong>Delete</strong></td><td>Removes the profile (asks first)</td></tr></table>
+</section>
+<section id="move-windows">
+<h1>Move and resize windows</h1>
+<p>Right-click a profile&#39;s card and click <strong>Edit layout &amp; apps...</strong>. You&#39;ll see your monitors drawn to scale, with a box for every window in the profile.</p>
+<figure><img src="images/editor.png" alt="The Profile Editor: your monitors with a box for each window, and the app&#39;s settings on the right" /><figcaption>The Profile Editor: your monitors with a box for each window, and the app&#39;s settings on the right</figcaption></figure>
+<h2>Move a window</h2>
+<ol><li>Drag its box to where the window should go.</li><li>To resize it, drag the box&#39;s bottom-right corner.</li><li>Click <strong>Save profile</strong>.</li></ol>
+<p>Boxes snap to the edges and halves of each screen. Hold <code>Alt</code> while dragging to turn snapping off. After clicking a box, the arrow keys nudge it 1 pixel (hold <code>Shift</code> for 10).</p>
+<h2>Try it out</h2>
+<ul><li><strong>Move it there now:</strong> moves that app&#39;s open window to the spot, so you can see how it looks.</li><li><strong>Use its current spot:</strong> you moved the real window yourself? This copies where it is right now.</li><li><strong>Arrange open windows now:</strong> puts every open window of the profile in its spot. Nothing opens or closes.</li></ul>
+<h2>Add, remove and reorder apps</h2>
+<ul><li><strong>+ Open window:</strong> add a window that&#39;s open right now.</li><li><strong>+ Program:</strong> add a program or shortcut by its file.</li><li><strong>Move up / Move down:</strong> apps open in this order, top first.</li><li><strong>Remove:</strong> takes the app out of the profile.</li></ul>
+<h2>Settings for one app</h2>
+<p>Click an app in the list (or its box) to see its settings on the right:</p>
+<ul><li><strong>What LaunchStage does with it:</strong> open it and put it in place, only put it in place if it&#39;s already open, or only open it.</li><li><strong>Monitor</strong>, and <strong>Normal</strong>, <strong>Maximized</strong> or <strong>Minimized</strong>.</li><li><strong>Run as administrator</strong>, and <strong>Close it when the profile is closed</strong>.</li><li><strong>Wait before opening:</strong> handy for apps that need another app to start first.</li><li><strong>Websites</strong> (browsers only). See <a href="#browsers">Browser windows and websites</a>.</li></ul>
+<div class="tip"><strong>Tip:</strong> Nothing is saved until you click <strong>Save profile</strong>. Close the window without saving and LaunchStage asks first.</div>
+</section>
+<section id="what-closes">
+<h1>Which apps close</h1>
+<p>Right-click a profile&#39;s card and click <strong>Name, look &amp; options...</strong>.</p>
+<figure><img src="images/profile-options.png" alt="Options for closing, hotkeys and more" /><figcaption>Options for closing, hotkeys and more</figcaption></figure>
+<h2>Apps that aren&#39;t in the profile</h2>
+<p>Under <strong>Apps not in this profile</strong>, choose what happens when the profile opens:</p>
+<ul><li><strong>Leave them alone:</strong> nothing happens to them.</li><li><strong>Minimize them:</strong> they&#39;re tucked away to the taskbar.</li><li><strong>Close them (asks to save first):</strong> they&#39;re closed one at a time, and LaunchStage waits if one asks to save.</li></ul>
+<h2>Apps that should never close</h2>
+<p>Some apps should never be closed or minimized by any profile, like a password manager or music player.</p>
+<ol><li>Open <strong>Settings</strong>.</li><li>Under <strong>Never close</strong>, start typing the app&#39;s name and pick it from the list. (Or click <strong>Browse...</strong> to find its program file.)</li><li>Click <strong>Save</strong>.</li></ol>
+<h2>When you close the profile</h2>
+<p>Under <strong>When you close this profile, close</strong>, tick the apps that should close with the profile. Unticked apps stay open.</p>
+<ul><li><strong>Put the apps that stay open back where they were before the profile started:</strong> handy for apps like Discord that you use all the time.</li><li><strong>Move windows back to their profile spots before closing them:</strong> apps that remember their own window position will remember the profile&#39;s layout, not where you last dragged them.</li></ul>
+<h2>Apps with several windows</h2>
+<p>Some apps open several windows (like a chat overlay with a main window and chat boxes). An app like that gets one tick box per window. Tick only the <strong>main</strong> window: LaunchStage closes just that one, and the app closes its other windows itself.</p>
+<div class="tip"><strong>Tip:</strong> Transparent Twitch Chat is handled for you: LaunchStage always closes its main window only, so your chat overlays are never deleted.</div>
+</section>
+<section id="browsers">
+<h1>Browser windows and websites</h1>
+<p>Each browser window in a profile can open on its own websites, in its own window.</p>
+<h2>Set a window&#39;s websites</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Edit layout &amp; apps...</strong>.</li><li>Click the browser window in the list.</li><li>In the <strong>Websites</strong> box, type the sites, one per line. Each one opens as a tab. (<code>kick.com</code> is fine; LaunchStage adds <code>https://</code> for you.)</li><li>Click <strong>Save profile</strong>.</li></ol>
+<div class="tip"><strong>Tip:</strong> Easier: open the browser on the site first, then click <strong>Use the site it&#39;s showing now</strong>. LaunchStage reads the address for you. When you add a browser window to a profile, it does this by itself.</div>
+<p>Leave <strong>Websites</strong> empty and the browser shows whatever it normally shows when it starts.</p>
+<h2>Private / incognito windows</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Name, look &amp; options...</strong>.</li><li>Under <strong>Open these browser windows as private / incognito</strong>, tick the windows that should be private.</li><li>Click <strong>Save profile</strong>.</li></ol>
+<p>A private window only ever uses or closes private windows. Normal windows leave private ones alone.</p>
+<h2>Which browsers work</h2>
+<p>Chrome, Brave, Edge, Firefox, Vivaldi, Opera and Opera GX, Chromium, Arc, Thorium, Zen, LibreWolf, Waterfox, Floorp and Mullvad Browser. Other browsers still open and get moved into place, just without the Websites box or private windows.</p>
+</section>
+<section id="hotkeys">
+<h1>Hotkeys</h1>
+<p>A hotkey is a key combination, like <code>Ctrl+Alt+1</code>, that works anywhere in Windows while LaunchStage is running, even when it&#39;s hidden in the tray.</p>
+<h2>Give a profile hotkeys</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Name, look &amp; options...</strong>.</li><li>Under <strong>Hotkeys</strong>, click the <strong>Open / close this profile</strong> box.</li><li>Press the keys you want, for example <code>Ctrl+Alt+1</code>. The box shows them.</li><li>If you like, click the <strong>Put its windows back</strong> box and press another combination.</li><li>Click <strong>Save profile</strong>.</li></ol>
+<ul><li><strong>Open / close this profile:</strong> press it once to open the profile. Press it again to close it.</li><li><strong>Put its windows back:</strong> moves the profile&#39;s open windows back to their spots.</li></ul>
+<h2>A hotkey for the game picker</h2>
+<p>Open <strong>Settings</strong>, click the <strong>Open the game picker</strong> box under <strong>Hotkeys</strong>, press the keys, and click <strong>Save</strong>.</p>
+<h2>Rules for hotkeys</h2>
+<ul><li>Use <code>Ctrl</code>, <code>Alt</code> or <code>Win</code> together with a key. The keys <code>F13</code> to <code>F24</code> (found on many macro pads) also work on their own.</li><li>Two hotkeys can&#39;t be the same. LaunchStage tells you if one is already used.</li><li>If another program already uses a combination, LaunchStage tells you, so you can pick another.</li><li>To remove a hotkey, click <strong>Clear</strong> next to it (or click the box and press <code>Backspace</code>).</li></ul>
+<div class="tip"><strong>Tip:</strong> A copy made with <strong>Duplicate</strong> starts without hotkeys, because a key can only do one thing.</div>
+</section>
+<section id="button-pads">
+<h1>Stream Deck and other button pads</h1>
+<p>Any button pad that can open a program can control LaunchStage: Stream Deck, Soomfon, macro pads, even a desktop shortcut.</p>
+<h2>Get the command for a button</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Stream Deck commands...</strong>.</li><li>Click <strong>Copy</strong> next to the command you want (see the list below).</li><li>In your button pad&#39;s software, add an action that opens a program or website, and paste the command.</li></ol>
+<p>The commands:</p>
+<ul><li><strong>Open this profile</strong></li><li><strong>Open or close this profile (one button for both)</strong></li><li><strong>Close this profile</strong></li><li><strong>Put its windows back in place</strong></li><li><strong>Open the game picker</strong></li></ul>
+<figure><img src="images/commands.png" alt="The Stream Deck commands window" /><figcaption>The Stream Deck commands window</figcaption></figure>
+<div class="tip"><strong>Tip:</strong> If your pad&#39;s software asks for the program and its arguments separately, copy the <strong>LaunchStage program</strong> line as the program, and use the part after it (like <code>--toggle &quot;Stream&quot;</code>) as the arguments.</div>
+<p>LaunchStage doesn&#39;t even need to be open: the button starts it if needed. A private profile still asks for its PIN.</p>
+<h2>The Stream Deck plugin</h2>
+<p>If you have an Elgato Stream Deck (Stream Deck app 7.1 or newer), there&#39;s also a LaunchStage plugin with three buttons:</p>
+<ul><li><strong>Profile:</strong> pick a profile and what pressing does. The button lights up while the profile is open.</li><li><strong>Put windows back:</strong> pick a profile.</li><li><strong>Play a game:</strong> opens the game picker.</li></ul>
+<p>To install it, double-click the file <code>com.bones84.launchstage.streamDeckPlugin</code>, then drag the buttons from the <strong>LaunchStage</strong> group onto your Stream Deck. Open LaunchStage once first, and keep it running (in the tray is fine).</p>
+</section>
+<section id="game-picker">
+<h1>Game picker</h1>
+<p>The game picker lists your games so you can start one quickly.</p>
+<figure><img src="images/game-picker.png" alt="The Pick a game window" /><figcaption>The Pick a game window</figcaption></figure>
+<h2>Open it</h2>
+<ul><li>Right-click the tray icon and click <strong>Play a game...</strong></li><li>Or let a profile suggest a game when it&#39;s ready: in the profile&#39;s <strong>Name, look &amp; options...</strong>, tick <strong>Suggest a game when this profile is ready</strong>.</li><li>Or give it a hotkey (see <a href="#hotkeys">Hotkeys</a>) or a button (see <a href="#button-pads">Stream Deck and other button pads</a>).</li></ul>
+<h2>Use it</h2>
+<ol><li>Type part of a game&#39;s name to find it (or use the arrow keys).</li><li>Double-click the game, or press <code>Enter</code>. It starts, and the picker closes.</li></ol>
+<p>Click <strong>Not now</strong> (or press <code>Esc</code>) to close it without playing.</p>
+<h2>Your games</h2>
+<ul><li>Installed <strong>Steam</strong> and <strong>Epic</strong> games show up by themselves.</li><li><strong>+ Add game...</strong> adds any other game by its program or shortcut.</li><li>Right-click a game to <strong>Add to favorites</strong> (favorites come first), <strong>Hide from this list</strong>, or <strong>Remove</strong> a game you added.</li><li>Tick <strong>Show hidden</strong> to see hidden games again.</li><li>Games you played most recently come right after your favorites.</li></ul>
+</section>
+<section id="private-profiles">
+<h1>Private profiles (PIN)</h1>
+<p>A private profile needs a 4-digit PIN before anyone can open, close, edit, copy, export or delete it.</p>
+<h2>Make a profile private</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Name, look &amp; options...</strong>.</li><li>Tick <strong>Private profile</strong>.</li><li>Type a 4-digit PIN, then type it again in the <strong>Again</strong> box.</li><li>Click <strong>Save profile</strong>.</li></ol>
+<p>The card now shows a lock and hides its list of apps.</p>
+<figure><img src="images/pin.png" alt="Typing the PIN to unlock a private profile" /><figcaption>Typing the PIN to unlock a private profile</figcaption></figure>
+<h2>Good to know</h2>
+<ul><li>After 5 wrong tries, the profile is locked for 60 seconds.</li><li>Buttons and hotkeys still work: LaunchStage pops up the PIN box when you press them.</li><li><strong>Change the PIN:</strong> type a new one twice in <strong>Name, look &amp; options...</strong> and save. Leave both boxes empty to keep the old one.</li><li><strong>Stop it being private:</strong> untick <strong>Private profile</strong> and save.</li></ul>
+<div class="tip"><strong>Tip:</strong> Forgot the PIN? It can&#39;t be recovered (LaunchStage only keeps a scrambled copy). Delete the profile&#39;s file from the Profiles folder (<strong>Settings</strong> &gt; <strong>Open profiles folder</strong>) and make the profile again.</div>
+</section>
+<section id="settings-and-look">
+<h1>Settings and look</h1>
+<p>Click <strong>Settings</strong> at the top of the LaunchStage window (or right-click the tray icon, then <strong>Settings</strong>).</p>
+<figure><img src="images/settings.png" alt="The Settings window" /><figcaption>The Settings window</figcaption></figure>
+<h2>General</h2>
+<ul><li><strong>Start with Windows:</strong> LaunchStage waits quietly in the tray after you sign in.</li><li><strong>Show the tray icon:</strong> with it on, closing the window keeps LaunchStage ready in the tray. <strong>Close App</strong> at the bottom of the window exits completely.</li><li><strong>Red-green (deuteranopia) vision assist:</strong> swaps red and green for colors that are easier to tell apart: blue means good, yellow means warning, orange means problem.</li></ul>
+<h2>Look</h2>
+<ul><li><strong>Colors:</strong> <strong>Dark</strong>, <strong>Light</strong>, or <strong>Match Windows</strong> (follows your Windows light or dark setting).</li><li><strong>Launcher layout:</strong> <strong>Cards</strong>, <strong>Small cards</strong>, <strong>List</strong> or <strong>Big tiles</strong>. The four small buttons at the top of the LaunchStage window switch this in one click.</li></ul>
+<figure><img src="images/launcher-list.png" alt="The List layout: one row per profile" /><figcaption>The List layout: one row per profile</figcaption></figure>
+<h2>Admin support</h2>
+<p>Apps that run as administrator can only be moved or closed by a program that also has administrator rights. Tick <strong>Run LaunchStage with administrator rights</strong> and Windows asks for permission once. Your other apps still start as normal apps.</p>
+<h2>The other sections</h2>
+<ul><li><strong>After a profile finishes, LaunchStage:</strong> goes to the tray, minimizes, or stays open.</li><li><strong>Hotkeys:</strong> the game picker hotkey (see <a href="#hotkeys">Hotkeys</a>).</li><li><strong>Never close:</strong> apps no profile will ever close (see <a href="#what-closes">Which apps close</a>).</li><li><strong>Profiles:</strong> import or export profiles, open the profiles folder, or open the log.</li></ul>
+<p>Click <strong>Save</strong> to keep your changes.</p>
+</section>
+<section id="when-something-goes-wrong">
+<h1>When something goes wrong</h1>
+<h2>A window didn&#39;t go to the right spot</h2>
+<ol><li>Right-click the profile&#39;s card and click <strong>Put windows back</strong>.</li><li>Still wrong? Click <strong>Edit layout &amp; apps...</strong>, click the app, and check its <strong>Monitor</strong> and position. <strong>Move it there now</strong> lets you try the spot.</li></ol>
+<p>Some apps move themselves right after opening. LaunchStage puts them back a few seconds later, so give it a moment.</p>
+<h2>An app didn&#39;t open</h2>
+<ul><li><strong>&quot;...its window didn&#39;t appear&quot;</strong>: the app took longer than usual. In <strong>Edit layout &amp; apps...</strong>, click the app and raise <strong>Give up waiting after (seconds)</strong>.</li><li><strong>&quot;...didn&#39;t open&quot;</strong>: the program file may have moved (apps like Discord change folders when they update). In <strong>Edit layout &amp; apps...</strong>, click the app, then <strong>Browse...</strong> to pick its program again.</li></ul>
+<h2>An app didn&#39;t close</h2>
+<ul><li>The corner box asks what to do: <strong>Try again</strong>, <strong>Leave it open &amp; continue</strong> or <strong>Stop profile</strong>.</li><li><strong>&quot;...it&#39;s running as administrator&quot;</strong>: turn on <strong>Admin support</strong> in <strong>Settings</strong>.</li></ul>
+<h2>A game isn&#39;t in the game picker</h2>
+<p>Click <strong>+ Add game...</strong> in the game picker and pick the game&#39;s program or shortcut.</p>
+<h2>Get help from someone</h2>
+<p>LaunchStage writes everything it does to a log file. It&#39;s the best thing to send when asking for help.</p>
+<ol><li>Open <strong>Settings</strong>.</li><li>Click <strong>Open log</strong> (under <strong>Profiles</strong>).</li><li>Copy the last part of the log, or send the whole file.</li></ol>
+<p>The log is in <code>%AppData%\LaunchStage\Logs\debug_log.txt</code>.</p>
+<div class="tip"><strong>Tip:</strong> Exclusive-fullscreen games can&#39;t be moved by any program. Set the game to <strong>borderless windowed</strong> in its own settings.</div>
+</section>
+<footer>Copyright &#169; 2026 Bones_84. All rights reserved. LaunchStage and this guide may not be copied, shared or distributed without the permission and consent of Bones_84. See LICENSE.txt.</footer>
+</main>
+</body>
+</html>
